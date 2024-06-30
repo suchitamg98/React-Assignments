@@ -1,7 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
-const jsxHeading=<h1>Namste React using JSX</h1>
 
+
+// Created a Nested header Element using React.createElement(h1,h2,h3 inside a div with class “title”)
+const heading=React.createElement("div",{class:"title"},[React.createElement("h1",{id:"heading1"},"this is h1 element"),
+React.createElement("h2",{id:"heading2"},"this is h2 element"),
+React.createElement("h3",{id:"heading3"},"this is h3 element")]);
+
+// Created a Nested header Element using JSX(h1,h2,h3 inside a div with class “title”)
+const headdingJsx=(<div className="title">
+    <h1>this is h1 element</h1>
+    <h2>this is h2 element</h2>
+    <h3>this is h3 element</h3>
+</div>);
+
+const HeadingFunctionalComponent=()=>{
+    return(
+        <div className="title">
+            <h1>this is h1 element</h1>
+            <h2>this is h2 element</h2>
+            <h3>this is h3 element</h3>
+        </div>
+    )
+}
+const jsxHeading=<h1>Namste React using JSX</h1>
 const Title=()=>{
     return(<h1>this is title component</h1>)
 }
@@ -33,4 +55,7 @@ const HeadingComponent=()=>{
     )
 }
 const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent/>);
+// root.render(<HeadingComponent/>);
+// root.render(heading);//using createelement
+// root.render(headdingJsx);//using jsx
+root.render(<HeadingFunctionalComponent/>);
